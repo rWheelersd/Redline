@@ -1,0 +1,29 @@
+.packages-hero { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); align-items: end; gap: clamp(2rem, 5vw, 6rem); padding: clamp(4rem, 7vw, 7rem) 0 clamp(3rem, 6vw, 6rem); border-bottom: 1px solid var(--line); }
+.packages-hero h1 { max-width: 940px; margin: .8rem 0 0; font-size: clamp(3rem, 6vw, 6.8rem); text-wrap: balance; }
+.packages-hero h1 span { color: var(--accent-light); }
+.packages-hero > p { max-width: 38ch; margin: 0 0 .35rem; color: var(--muted); font-size: clamp(1rem, 1.4vw, 1.2rem); }
+.packages-section { padding: clamp(4rem, 7vw, 7rem) 0; }
+.packages-section .section-heading { max-width: none; margin-bottom: 2rem; }
+.packages-section .section-heading h2 { font-size: clamp(2.3rem, 4.2vw, 4.7rem); }
+.package-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; border: 1px solid var(--line); background: var(--line); }
+.package-card { display: flex; flex-direction: column; min-width: 0; background: var(--surface); }
+.package-art { height: clamp(190px, 18vw, 320px); border-bottom: 1px solid var(--line); background-color: #1b1d21; }
+.car-art { background: linear-gradient(180deg, #08090b11, #08090b99), url('../img/ford/fordOne/image0.jpg') center / cover; }
+.event-art { display: flex; align-items: end; padding: 1.4rem; background: radial-gradient(circle at 80% 15%, #8f1b24 0, transparent 45%), repeating-linear-gradient(130deg, #111316, #111316 28px, #191b1f 29px, #191b1f 30px); }
+.event-art span { color: #fff; font-size: clamp(1.6rem, 2.5vw, 3rem); font-weight: 900; font-style: italic; letter-spacing: -.06em; }
+.portrait-art { background: linear-gradient(180deg, #08090b11, #08090b99), url('../img/layout/andi.jpg') center 35% / cover; }
+.package-body { display: flex; flex: 1; flex-direction: column; padding: clamp(1.4rem, 2.5vw, 2.4rem); }
+.package-number { color: var(--accent-light); font-size: .69rem; font-weight: 800; letter-spacing: .18em; text-transform: uppercase; }
+.package-body h3 { margin: 1rem 0; font-size: clamp(1.65rem, 2.5vw, 2.7rem); }
+.package-body > p { min-height: 6.5em; margin-bottom: 1.3rem; color: var(--muted); font-size: .93rem; }
+.package-spec { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .2rem 1rem; padding: .85rem 0; border-top: 1px solid var(--line); font-size: .77rem; }
+.package-spec span { color: var(--muted); }
+.package-spec strong { color: var(--text); text-align: right; }
+.package-body .button { align-self: flex-start; margin-top: 1.8rem; }
+.package-cta { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-bottom: clamp(4rem, 7vw, 7rem); padding: clamp(2rem, 5vw, 4rem); border-left: 3px solid var(--accent); background: var(--surface); }
+.package-cta h2 { margin-bottom: .8rem; font-size: clamp(2.2rem, 4.5vw, 4.5rem); }
+.package-cta p:last-child { max-width: 56ch; margin-bottom: 0; color: var(--muted); }
+.package-cta .button { flex-shrink: 0; }
+@media (max-width: 1100px) { .package-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .package-body > p { min-height: 0; } }
+@media (max-width: 800px) { .packages-hero { grid-template-columns: 1fr; } .package-cta { align-items: flex-start; flex-direction: column; } }
+@media (max-width: 650px) { .package-grid { grid-template-columns: 1fr; } .package-art { height: 260px; } }

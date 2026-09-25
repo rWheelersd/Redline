@@ -1,0 +1,16 @@
+.site-footer { flex-wrap: wrap; color: var(--muted); }
+.site-footer .footer-brand { color: var(--text); font-weight: 900; font-style: italic; letter-spacing: -.04em; }
+.footer-details, .footer-socials { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem 1.3rem; }
+.site-footer a { color: var(--text); }
+.site-footer a:hover { color: var(--accent-light); }
+.site-footer span { color: var(--muted); }
+@media (max-width: 650px) {
+  .footer-details, .footer-socials { align-items: flex-start; flex-direction: column; }
+}
+
+.preview-banner {
+  display: flex; align-items: center; gap: .65rem 1rem; flex-wrap: wrap;
+  padding: .6rem .9rem; border-bottom: 1px solid #3a2b2d;
+  background: #171316; color: #c9c6c7; font-size: .76rem; line-height: 1.4;
+}
+.preview-tag { flex-shrink: 0; color: var(--accent-light); font-size: .66rem; font-weight: 800; letter-spacing: .15em; }

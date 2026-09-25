@@ -1,0 +1,245 @@
+
+:root {
+  color-scheme: dark;
+  --bg: #08090b;
+  --surface: #111316;
+  --surface-raised: #181a1e;
+  --line: #303236;
+  --text: #f3f3f4;
+  --muted: #a5a7ac;
+  --soft: #707379;
+  --accent: #e21b25;
+  --accent-light: #ff4149;
+  font-family: "Arial", "Helvetica Neue", sans-serif;
+  font-size: clamp(1rem, .38vw + .65rem, 1.18rem);
+  --page-gutter: clamp(1rem, 3.2vw, 6rem);
+  --page-max: 1920px;
+  font-synthesis: none;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background: radial-gradient(circle at 87% 1%, #2a0e12 0, transparent 32rem), var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+::selection { background: var(--accent); color: white; }
+img { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+p, h1, h2, h3 { margin-top: 0; }
+h1, h2, h3 { line-height: 1.04; letter-spacing: -.045em; }
+.container { width: min(var(--page-max), calc(100% - var(--page-gutter) - var(--page-gutter))); margin-inline: auto; }
+.eyebrow, .section-label {
+  color: var(--accent-light);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+.button, .nav-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: .8rem 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  transition: background .2s, border-color .2s, transform .2s;
+}
+.button:hover, .nav-button:hover { border-color: var(--accent); transform: translateY(-2px); }
+.button.primary, .button-primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+}
+.button.primary:hover, .button-primary:hover { background: #b8141d; }
+.button.secondary { background: transparent; }
+:focus-visible { outline: 2px solid var(--accent-light); outline-offset: 4px; }
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 2rem 0;
+  border-top: 1px solid var(--line);
+  color: var(--soft);
+  font-size: .8rem;
+}
+footer p { margin: 0; }
+.socials { display: flex; flex-wrap: wrap; gap: 1.3rem; }
+.socials a:hover { color: var(--accent-light); }
+@media (max-width: 650px) {
+  .container { width: min(var(--page-max), calc(100% - 2rem)); }
+  footer { align-items: flex-start; flex-direction: column; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+
+.site-nav {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+  min-height: 82px;
+  margin-inline: auto;
+  border-bottom: 1px solid var(--line);
+}
+.nav-logo {
+  flex-shrink: 0;
+  color: var(--text);
+  font-size: 1.18rem;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -.065em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+.nav-logo::before {
+  display: inline-block;
+  width: 22px;
+  height: 3px;
+  margin: 0 .55rem .31rem 0;
+  background: var(--accent);
+  content: "";
+  transform: skewX(-25deg);
+}
+.nav-links { display: flex; align-items: center; gap: clamp(.85rem, 2.1vw, 2rem); }
+.nav-links a {
+  position: relative;
+  display: inline-block;
+  padding: 1.05rem 0;
+  color: var(--muted);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  white-space: nowrap;
+  text-transform: uppercase;
+  transition: color .2s;
+}
+.nav-links a:hover, .nav-links a.active, .nav-links a[aria-current="page"] { color: var(--text); }
+.nav-links a.active::after, .nav-links a[aria-current="page"]::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  content: "";
+}
+.nav-cta {
+  flex-shrink: 0;
+  padding: .75rem 1rem;
+  border: 1px solid var(--accent);
+  color: var(--text);
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .13em;
+  white-space: nowrap;
+  text-transform: uppercase;
+  transition: background .2s;
+}
+.nav-cta:hover { background: var(--accent); }
+@media (max-width: 900px) {
+  .site-nav { flex-wrap: wrap; gap: .3rem 1.5rem; padding-top: 1rem; }
+  .nav-links { order: 3; width: 100%; gap: 1.4rem; overflow-x: auto; scrollbar-width: thin; }
+  .nav-links a { padding-block: .85rem; }
+}
+@media (max-width: 650px) {
+  .site-nav { width: 100%; }
+  .nav-cta { display: none; }
+}
+
+.mainContainer {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, .95fr);
+  align-items: center;
+  gap: clamp(2rem, 6vw, 6rem);
+  min-height: min(800px, calc(100vh - 164px));
+  padding: clamp(4rem, 7vw, 7rem) 0;
+}
+.galleryIntro h1 { max-width: 700px; margin: 0; font-size: clamp(3.5rem, 7vw, 7.5rem); }
+.galleryIntro .intro { max-width: 560px; margin: 1.5rem 0 0; color: var(--muted); font-size: 1.08rem; }
+.brandSelector { max-width: 430px; margin-top: 3rem; }
+.brandLabel { display: block; margin-bottom: .65rem; color: var(--text); font-size: .72rem; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+#brandSelect { width: 100%; min-height: 55px; padding: .75rem 2.6rem .75rem 1rem; border: 1px solid #5a5b5e; border-radius: 2px; background: var(--surface); color: var(--text); cursor: pointer; }
+#brandSelect:hover, #brandSelect:focus-visible { border-color: var(--accent-light); }
+.galleryPreview {
+  display: flex; flex-direction: column; justify-content: space-between;
+  min-height: 450px; padding: clamp(1.5rem, 3vw, 2.5rem);
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #08090b22 0, #08090b77 52%, #08090bf5 100%), url("../img/ford/fordOne/image0.jpg") center / cover, var(--surface);
+}
+.previewIcon { display: grid; place-items: center; width: 52px; height: 52px; border: 1px solid #ffffff66; color: white; font-size: .75rem; font-weight: 800; }
+.previewLabel { margin-bottom: .5rem; color: var(--accent-light); font-size: .7rem; font-weight: 800; letter-spacing: .2em; text-transform: uppercase; }
+.galleryPreview h2 { max-width: 340px; margin-bottom: .5rem; font-size: clamp(1.9rem, 3vw, 3rem); }
+.galleryPreview p:last-child { max-width: 390px; margin-bottom: 0; color: #d6d6d6; }
+.galleryModal, .imageModal {
+  position: fixed; inset: 0; z-index: 1000;
+  display: none; align-items: center; justify-content: center;
+  padding: 1rem; background: #050607ed; backdrop-filter: blur(8px);
+}
+.galleryModal.active, .imageModal.active { display: flex; }
+body:has(.galleryModal.active), body:has(.imageModal.active) { overflow: hidden; }
+.galleryWindow { display: flex; flex-direction: column; width: min(1120px, 100%); max-height: min(90vh, 950px); min-height: 240px; overflow: hidden; border: 1px solid #414144; background: #101113; box-shadow: 0 25px 80px #000b; }
+.galleryHeader { display: grid; grid-template-columns: 1fr minmax(0, auto) 1fr; align-items: center; gap: 1rem; padding: 1rem 1.25rem; border-bottom: 1px solid var(--line); }
+.galleryHeader h2 { overflow: hidden; margin: 0; font-size: 1.1rem; text-align: center; text-overflow: ellipsis; white-space: nowrap; }
+.backButton, .closeButton, .closeImageButton { border: 1px solid var(--line); background: var(--surface-raised); color: var(--text); }
+.backButton:hover, .closeButton:hover, .closeImageButton:hover { border-color: var(--accent); background: #351115; }
+.backButton { justify-self: start; min-height: 40px; padding: .4rem .8rem; font-size: .75rem; font-weight: 800; text-transform: uppercase; }
+.closeButton { justify-self: end; width: 40px; height: 40px; font-size: 1.5rem; line-height: 1; }
+.galleryContent { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; min-height: 0; overflow-y: auto; padding: 1.25rem; }
+.galleryItem { overflow: hidden; border: 1px solid var(--line); background: var(--surface-raised); cursor: pointer; transition: border-color .2s, transform .2s; }
+.galleryItem:hover { border-color: var(--accent); transform: translateY(-2px); }
+.galleryItem img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; background: #222; }
+.galleryItem p { margin: 0; padding: .9rem 1rem; font-size: .85rem; font-weight: 700; }
+.imageModal { z-index: 1100; }
+#fullSizeImage { max-width: min(1200px, 94vw); max-height: 88vh; object-fit: contain; }
+.closeImageButton { position: absolute; top: 1rem; right: 1rem; width: 44px; height: 44px; font-size: 1.6rem; line-height: 1; }
+@media (max-width: 900px) {
+  .mainContainer { grid-template-columns: 1fr; }
+  .galleryPreview { min-height: 340px; }
+  .galleryContent { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 650px) {
+  .galleryContent { grid-template-columns: 1fr; }
+  .galleryWindow { max-height: 94vh; }
+  .galleryHeader { gap: .5rem; padding: .8rem; }
+  .galleryHeader h2 { font-size: .9rem; }
+  .backButton { padding-inline: .5rem; }
+  .galleryPreview { min-height: 300px; }
+  #fullSizeImage { max-height: 80vh; }
+}
+
+.mainContainer { min-height: calc(100svh - 164px); }
+.galleryIntro, .galleryPreview { min-width: 0; }
+.galleryIntro h1 { font-size: clamp(2.7rem, 4.8vw, 5.8rem); text-wrap: balance; }
+.galleryPreview h2 { max-width: 18ch; font-size: clamp(1.8rem, 2.7vw, 3.1rem); }
+.galleryPreview p { overflow-wrap: anywhere; }
+@media (max-width: 900px) { .mainContainer { min-height: 0; } }
+
+.galleryIntro .eyebrow { margin-bottom: 1rem; }
+.brandSelector + .brandSelector { margin-top: 1.6rem; }
+#eventSelect { width: 100%; min-height: 55px; padding: .75rem 2.6rem .75rem 1rem; border: 1px solid #5a5b5e; border-radius: 2px; background: var(--surface); color: var(--text); cursor: pointer; }
+#eventSelect:focus-visible, #eventSelect:hover { border-color: var(--accent-light); }
+#eventSelect:disabled { opacity: .65; cursor: not-allowed; }
+.selector-hint { margin: .6rem 0 0; color: var(--soft); font-size: .8rem; }
+.galleryItem { display: block; width: 100%; padding: 0; color: var(--text); text-align: left; font: inherit; }
+.galleryItem:focus-visible { outline-offset: -3px; }
